@@ -8,13 +8,27 @@
   align-items: center;
   display: flex;
   flex-direction: row;
-  
   font-size: medium;
+}
+
+.nav-list .active {
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .nav-item {
   margin-left: 30px;
   padding-top: 20px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-weight: 400;
+  color: rgb(80, 79, 79);
+  text-decoration: none;
+}
+.nav-item:hover{
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .nav {
@@ -23,17 +37,20 @@
   align-items: center;
   padding: 20px 20px;
   background-color: #f8f8f8;
+  margin: 0 0 50px 0;
+  font-size: 20px;
+  height: 120px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cart-widget {
-    display: flex;         /* Alinea los hijos en línea */
-    align-items: center;   /* Centra verticalmente el icono y el número */
-    gap: 5px;             /* Crea un espacio pequeño entre el icono y el 1 */
+    display: flex;        
+    align-items: center;  
+    gap: 5px;             
 }
 
 .cart-count {
-    font-size: 1.2rem;     /* Ajusta el tamaño del número */
+    font-size: 1.2rem;    
     font-weight: bold;
-    color: #333;           /* Color del número */
+    color: #333;         
 }
