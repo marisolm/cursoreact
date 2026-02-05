@@ -1,25 +1,30 @@
-import { getProducts } from "../../data/data.js";
 import { useState, useEffect } from "react";  
 import ItemList from "../ItemList/ItemList.jsx";
+import { useParams } from "react-router";
+import { getProducts } from "../../data/data.js";
+import "./ItemListContainer.css";
 
 const ItemListContainer = ({ saludo }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    
-    useEffect(() => {
-    
-        getProducts()
-          .then((response) => {
-            setProducts(response);
-        })
-        .catch((error) => {
-            console.error("Error fetching products: ", error);
-        })
-        .finally(() => {
-            setLoading(false);
-        });
+    const { category } = useParams();
 
-    }, []);
+    useEffect(() => {
+
+        setLoading(true);
+
+        getProducts().then((response) => {
+            if (category) {
+                const filteredProducts = response.filter(product => product.category === category);
+                setProducts(filteredProducts);
+            } else {
+                setProducts(response);
+            }
+                setLoading(false);
+            });
+
+    }, [category]);
+
 
     return (
         <div className="itemListContainer">
