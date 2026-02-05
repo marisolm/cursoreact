@@ -4,13 +4,11 @@ import "./item.css";
 
 const Item = ({ product }) => {
     return (
-        <div>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>Stock: {product.stock}</p>
-            <img src={product.image} alt={product.name} />
-            <p>Price: ${product.price}</p>
-            <Link to={`/detail/${product.id}`} className="item-button">MÁS INFORMACIÓN</Link>
+        <div className="item">
+            <img className="item-img" src={product.image} alt={product.name} />
+            <h3 className="item-title">{product.name}</h3>
+            <p className="item-price">Precio: ${product.price}</p>
+            <Link to={`/detail/${product.id}`} className="item-button">Más información</Link>
         </div>
     );
 }
