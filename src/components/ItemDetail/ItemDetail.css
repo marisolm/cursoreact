@@ -1,0 +1,14 @@
+.itemDetail {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+}
+
+.itemDetail img {
+    max-width: 10%;
+    height: auto;
+    border-radius: 5px;
+}
