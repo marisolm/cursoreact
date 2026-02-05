@@ -6,7 +6,7 @@ const products = [
         stock: 30, 
         image: '/image/cuero1.jpg',
         price: 100,
-        category: 'categoria1'
+        category: 'carteras'
     },
     { 
         id: 2, 
@@ -15,7 +15,7 @@ const products = [
         stock: 20, 
         image: '/image/cuero2.jpg',
         price: 200,
-        category: 'categoria2'
+        category: 'bolsos'
     },
     { 
         id: 3, 
@@ -24,7 +24,7 @@ const products = [
         stock: 10, 
         image: '/image/cuero3.jpg',
         price: 300,
-        category: 'categoria3'
+        category: 'billeteras'
     },
 ];
 
@@ -36,3 +36,14 @@ export const getProducts = () => {
         }, 3000);
     });
 };
+
+export const getProductById = (productId) => {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => { 
+            const product = products.find((productData) => productData.id === Number.productId);
+            resolve(product);
+        }, 2000);
+    });
+};
+
+export default products;
