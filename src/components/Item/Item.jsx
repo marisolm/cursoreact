@@ -1,3 +1,7 @@
+import {Link } from "react-router";
+import "./item.css";
+
+
 const Item = ({ product }) => {
     return (
         <div>
@@ -6,7 +10,7 @@ const Item = ({ product }) => {
             <p>Stock: {product.stock}</p>
             <img src={product.image} alt={product.name} />
             <p>Price: ${product.price}</p>
-            <p>Category: {product.category}</p>
+            <Link to={`/detail/${product.id}`} className="item-button">MÁS INFORMACIÓN</Link>
         </div>
     );
 }
