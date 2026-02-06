@@ -1,30 +1,93 @@
 const products = [
     { 
         id: 1, 
-        name: "Producto 1", 
-        description: "Descripción del producto 1", 
+        name: "Cartera 1", 
+        description: "Cartera 100% cuero en colores varios y detalles en metal", 
         stock: 30, 
         image: '/image/cuero1.jpg',
-        price: 100,
+        price: 110,
         category: 'carteras'
     },
     { 
         id: 2, 
-        name: "Producto 2", 
-        description: "Descripción del producto 2", 
+        name: "Billetera 2", 
+        description: "Billetera 100% cuero animal en colores varios", 
         stock: 20, 
         image: '/image/cuero2.jpg',
-        price: 200,
-        category: 'bolsos'
+        price: 180,
+        category: 'billeteras'
     },
     { 
         id: 3, 
-        name: "Producto 3", 
-        description: "Descripción del producto 3", 
+        name: "Bolso 3", 
+        description: "Bolso 100% cuero en colores varios y detalles en metal", 
         stock: 10, 
         image: '/image/cuero3.jpg',
-        price: 300,
+        price: 322,
+        category: 'bolsos'
+    },
+    { 
+        id: 4, 
+        name: "Cartera 4", 
+        description: "Cartera 100% cuero en colores varios y detalles en metal",
+        stock: 30, 
+        image: '/image/cuero1.jpg',
+        price: 120,
+        category: 'carteras'
+    },
+    { 
+        id: 5,  
+        name: "Billetera 5", 
+        description: "Billetera 100% cuero animal en colores varios", 
+        stock: 20, 
+        image: '/image/cuero2.jpg',
+        price: 230,
         category: 'billeteras'
+    },
+    { 
+        id: 6, 
+        name: "Bolso 6", 
+        description: "Bolso 100% cuero en colores varios y detalles en metal", 
+        stock: 10, 
+        image: '/image/cuero3.jpg',
+        price: 245,
+        category: 'bolsos'
+    },
+        { 
+        id: 7, 
+        name: "Cartera 7", 
+        description: "Cartera 100% cuero en colores varios y detalles en metal", 
+        stock: 30, 
+        image: '/image/cuero1.jpg',
+        price: 310,
+        category: 'carteras'
+    },
+    { 
+        id: 8,  
+        name: "Billetera 8", 
+        description: "Billetera 100% cuero animal en colores varios", 
+        stock: 20, 
+        image: '/image/cuero2.jpg',
+        price: 150,
+        category: 'billeteras'
+    },
+    { 
+        id: 9,
+        name: "Bolso 9", 
+        description: "Bolso 100% cuero en colores varios y detalles en metal", 
+        stock: 10, 
+        image: '/image/cuero3.jpg',
+        price: 310,
+        category: 'bolsos'
+    },
+        { 
+        id: 10,
+        name: "Bolso 4", 
+        description: "Bolso 100% cuero en colores varios y detalles en metal", 
+        stock: 10, 
+        image: '/image/cuero3.jpg',
+        price: 290,
+        category: 'bolsos'
     },
 ];
 
@@ -33,16 +96,16 @@ export const getProducts = () => {
     return new Promise ((resolve, reject) => {
         setTimeout(() => {
             resolve(products);
-        }, 3000);
+        }, 1000);
     });
 };
 
 export const getProductById = (productId) => {
     return new Promise ((resolve, reject) => {
         setTimeout(() => { 
-            const product = products.find((productData) => productData.id === Number.productId);
+            const product = products.find((productData) => productData.id === Number(productId));
             resolve(product);
-        }, 2000);
+        }, 1000);
     });
 };
 
