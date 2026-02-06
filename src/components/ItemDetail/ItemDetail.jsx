@@ -1,12 +1,16 @@
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount.jsx";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext.jsx";
+
 
 const ItemDetail = ({ product }) => {
+    const { addProduct } = useContext(CartContext);
 
-    const onAdd = (count) => {
-        alert(`Has seleccionado ${count} unidades de ${product.name}`);
-        console.log("Cantidad enviada al carrito:", count);
-    };
+    const addToCart = (count) => { 
+        const newProduct = {...product, quantity:count};
+        addProduct(newProduct);
+   };
 
     return (
         <div className="item-detail">
@@ -14,7 +18,7 @@ const ItemDetail = ({ product }) => {
             <p>{product.name}</p>
             <p>{product.description}</p>
             <p>Precio: ${product.price}</p>        
-            <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
+            <ItemCount stock={product.stock} addToCart={addToCart} />
         </div>
 
     );

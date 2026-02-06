@@ -1,10 +1,17 @@
 import { IoCartOutline } from "react-icons/io5";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router";
 
 const CartWidget = () => {
+    const { totalQuantity } = useContext(CartContext);
+
     return (
         <div className="cart">
-            <IoCartOutline size={50}/>
-            <span className="cart-count">1</span>
+            <Link to="/cart">
+                <IoCartOutline size={50}/>
+            </Link>
+            <span className="cart-count">{totalQuantity() }</span>
         </div>
     );
 }
