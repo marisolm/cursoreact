@@ -11,7 +11,7 @@ const ItemDetailContainer = () => {
         getProductById(productId).then((data) => {
             setProduct(data);
         });
-        console.log("Product ID: ", productId);
+        //console.log("Product ID: ", productId);
     }, [productId]);     
 
 return (
