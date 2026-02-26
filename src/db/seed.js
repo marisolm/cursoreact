@@ -1,3 +1,6 @@
+import db from "./db.js";
+import { addDoc, collection } from "firebase/firestore";
+
 const products = [
     { 
         id: 1, 
@@ -109,22 +112,18 @@ const products = [
     }
 ];
 
+const seedProducts = async () => {
+    try {
+        const productsRef = collection(db, 'products');
 
-export const getProducts = () => {
-    return new Promise ((resolve, reject) => {
-        setTimeout(() => {
-            resolve(products);
-        }, 1000);
-    });
+        for (const product of products) {
+            const { id, ...productData } = product; // Extraer el id del producto
+            await addDoc(productsRef, productData);
+            console.log('Productos agregados exitosamente');
+        }
+    } catch (error) {
+        console.error('Error al agregar productos: ', error);
+    }
 };
 
-export const getProductById = (productId) => {
-    return new Promise ((resolve, reject) => {
-        setTimeout(() => { 
-            const product = products.find((productData) => productData.id === Number(productId));
-            resolve(product);
-        }, 1000);
-    });
-};
-
-export default products;
+seedProducts();
