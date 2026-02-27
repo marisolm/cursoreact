@@ -11,7 +11,7 @@ const Checkout = () => {
         email: ""
     });
     const [ orderId, setOrderId ] = useState(null);
-    const { cart, totalPrice } = useContext(CartContext);
+    const { cart, totalPrice, deleteCart } = useContext(CartContext);
 
     const changeInput = (event) => {
         setDataForm({
@@ -38,6 +38,7 @@ const Checkout = () => {
             const response = await addDoc(orderRef, order);
 
             setOrderId(response.id);
+            deleteCart();
 
         } catch (error) {
             console.error("Error al crear la orden: ", error);
@@ -54,6 +55,7 @@ const Checkout = () => {
                         <h2>¡Gracias por tu compra!</h2>
                         <h3>Tu número de orden es: {orderId}</h3>
                         <Link to="/">Volver a la tienda</Link>
+
                     </div>
                 ) : (
                 <form onSubmit={submitForm}>
