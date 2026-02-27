@@ -6,6 +6,7 @@ import NotFound from './components/NotFound/NotFound.jsx';
 import {BrowserRouter, Routes, Route} from 'react-router';
 import { CartProvider } from './context/CartContext.jsx';
 import Cart from './components/Cart/Cart.jsx';
+import Checkout from './components/Checkout/Checkout.jsx';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='/category/:category' element={<ItemListContainer saludo= {"Productos por Categoría"} />} />
           <Route path='/detail/:productId' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/checkout' element={<Checkout />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </CartProvider>

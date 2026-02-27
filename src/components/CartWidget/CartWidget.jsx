@@ -5,13 +5,16 @@ import { Link } from "react-router";
 
 const CartWidget = () => {
     const { totalQuantity } = useContext(CartContext);
+    const quantity = totalQuantity();
 
     return (
         <div className="cart">
             <Link to="/cart">
                 <IoCartOutline size={50}/>
             </Link>
-            <span className="cart-count">{totalQuantity() }</span>
+            {
+            quantity >0 && <span className="cart-count">{quantity}</span>
+            }   
         </div>
     );
 }
