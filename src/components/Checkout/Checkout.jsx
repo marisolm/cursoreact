@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, doc, addDoc, updateDoc, increment  } from "firebase/firestore";
 import db from "../../db/db.js";
 import { Link } from "react-router";
 
@@ -26,7 +26,8 @@ const Checkout = () => {
         const order = {
             buyer: { ...dataForm },
             products: [ ...cart ],
-            total: totalPrice() 
+            total: totalPrice(),
+            date: new Date() 
         };
 
         uploadOrder(order);
@@ -38,6 +39,7 @@ const Checkout = () => {
             const response = await addDoc(orderRef, order);
 
             setOrderId(response.id);
+            updateStock();
             deleteCart();
 
         } catch (error) {
@@ -45,6 +47,14 @@ const Checkout = () => {
         }
     };
 
+    const updateStock = () => {
+        cart.forEach((productCart) => {
+            const productRef = doc(db, "products", productCart.id);
+            updateDoc(productRef, {stock: increment(-productCart.quantity)});
+            console.log(`Stock actual del producto ${productCart.name} actualizado: -${productCart.quantity}`);
+            console.log(`Stock actualizado para el producto ${productCart.name}`);
+        });
+    };
 
     return (
         <div>
@@ -59,9 +69,9 @@ const Checkout = () => {
                     </div>
                 ) : (
                 <form onSubmit={submitForm}>
-                    <input type="text" name="fullname" value={dataForm.fullname} onChange={changeInput} placeholder="Nombre completo"/>
-                    <input type="number" name="phone" value={dataForm.phone} onChange={changeInput} placeholder="Teléfono"/>
-                    <input type="email" name="email" value={dataForm.email} onChange={changeInput} placeholder="Email"/>
+                    <input type="text" name="fullname" value={dataForm.fullname} onChange={changeInput} placeholder="Nombre completo"/><br/>
+                    <input type="number" name="phone" value={dataForm.phone} onChange={changeInput} placeholder="Teléfono"/><br/>
+                    <input type="email" name="email" value={dataForm.email} onChange={changeInput} placeholder="Email"/><br/>
                     <button type="submit">Finalizar mi compra</button>
                 </form>
                 )
