@@ -14,11 +14,16 @@ const ItemDetail = ({ product }) => {
 
     return (
         <div className="item-detail">
-            <img src={product.image} alt={product.name}/>
-            <p>{product.name}</p>
-            <p>{product.description}</p>
-            <p>Precio: ${product.price}</p>        
-            <ItemCount stock={product.stock} addToCart={addToCart} />
+            <div className="detail-image-container">
+                <img className="detail-image" src={product.image} alt={product.name}/>
+            </div>
+            <div className="detail-info-container">
+                <p className="detail-title">{product.name}</p>
+                <p className="detail-description">{product.description}</p>
+                <p className="detail-price">Precio: ${product.price}</p>        
+                <ItemCount stock={product.stock} addToCart={addToCart} />
+            </div>
+            
         </div>
 
     );

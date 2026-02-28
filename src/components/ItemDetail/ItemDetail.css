@@ -1,19 +1,66 @@
 .item-detail {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #f9f9f9;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
-
-.item-detail img {
-    max-width: 50%;
+    
+.detail-image-container {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+    
+.detail-image {
+    width: 100%;
+    max-width: 450px;
     height: auto;
-    border-radius: 5px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+    
+.detail-image:hover {
+    transform: scale(1.03);
+}
+    
+.detail-info-container {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    
+.detail-title {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+    
+.detail-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 25px;
+}
+    
+.detail-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.item-detail p {
-    font-size: 18px;
-    margin: 10px 0;
+.detail-controls {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
 }
